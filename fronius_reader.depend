@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1500539130 source:/home/pierre/Documents/projets_C/codeblocks/fronius_reader/src/main.c
+1500539487 source:/home/pierre/Documents/projets_C/codeblocks/fronius_reader/src/main.c
 	<unistd.h>
 	<stdio.h>
 	<stdlib.h>
@@ -37,10 +37,10 @@
 
 1500466603 /home/pierre/Documents/projets_C/codeblocks/fronius_reader/src/fronius.h
 
-1500537204 /home/pierre/Documents/projets_C/codeblocks/fronius_reader/src/window.h
+1500539546 /home/pierre/Documents/projets_C/codeblocks/fronius_reader/src/window.h
 	<SDL2/SDL.h>
 
-1500539204 source:/home/pierre/Documents/projets_C/codeblocks/fronius_reader/src/window.c
+1500539675 source:/home/pierre/Documents/projets_C/codeblocks/fronius_reader/src/window.c
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<stdio.h>

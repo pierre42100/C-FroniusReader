@@ -42,4 +42,13 @@ void fill_renderer(SDL_Color color);
  */
 void update_screen(int number);
 
+/**
+ * Quit SDL :
+ * - Destroy textures
+ * - Destroy renderer
+ * - Destroy window
+ * - Quit SDl
+ */
+void quit_sdl();
+
 #endif // WINDOW_H_INCLUDED

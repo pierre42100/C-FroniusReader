@@ -167,3 +167,27 @@ void update_screen(int number){
     //End of function
     return;
 }
+
+/**
+ * Quit SDL :
+ * - Destroy textures
+ * - Destroy renderer
+ * - Destroy window
+ * - Quit SDl
+ */
+void quit_sdl(){
+    //Destroy texture
+    if(numbers_texture != NULL)
+        SDL_DestroyTexture(numbers_texture);
+
+    //Destroy renderer
+    if(renderer != NULL)
+        SDL_DestroyRenderer(renderer);
+
+    //Destroy window
+    if(window != NULL)
+        SDL_DestroyWindow(window);
+
+    //Quit SDL
+    SDL_Quit();
+}

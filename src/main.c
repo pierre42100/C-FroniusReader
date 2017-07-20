@@ -32,6 +32,10 @@ int main(int argc, char *argv[])
     char *hostname, *address, *address_file;
     int produced_energy;
 
+    //Event catcher
+    SDL_Event event;
+    SDL_bool quit = SDL_FALSE;
+
     //Check if a specific address file was specified
     if(argc < 2){
         address_file = "address.txt";
@@ -69,29 +73,36 @@ int main(int argc, char *argv[])
     load_graphical_numbers("Numbers.png");
 
     //Infinite loop
-    while(1 == 1){
+    while(quit == SDL_FALSE){
         //Perform the request on the server
-        //char *response = web_request(1000, hostname, 80, "GET", address, "");
+        char *response = web_request(1000, hostname, 80, "GET", address, "");
 
         //Determine the produced amount of energy
-        //produced_energy = determine_inverter_produced_value(response);
-        produced_energy = alea(5000, 200);
+        produced_energy = determine_inverter_produced_value(response);
         fprintf(stdout, "Currently, %d W are produced by the inverter.\n", produced_energy);
 
         //Free memory
-        //free(response);
+        free(response);
 
         //Update screen
         update_screen(produced_energy);
 
+        //Wait for SDL event (to avoid window errors)
+        SDL_WaitEventTimeout(&event, PAUSE_DURATION*1000);
+        if(event.type == SDL_QUIT)
+            quit = SDL_TRUE;
+
         //Make a pause
-        usleep(PAUSE_DURATION*1000000);
+        usleep(50000);
     }
 
 
     //Free memory
     free(hostname);
     free(address);
+
+    //Quit sdl
+    quit_sdl();
 
     //This is a success
     fprintf(stdout, "Exited cleany.\n");
