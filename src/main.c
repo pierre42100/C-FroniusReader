@@ -6,6 +6,7 @@
  *
  * @author Pierre HUBERT
  */
+#include <SDL2/SDL.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
