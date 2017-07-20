@@ -1,1 +1,1 @@
-http://fronius.internal/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+fronius.internal/solar_api/v1/GetPowerFlowRealtimeData.fcgi

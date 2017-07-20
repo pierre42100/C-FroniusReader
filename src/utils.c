@@ -24,7 +24,7 @@ char* get_file_contents(const char *filename, int limit){
 
     //Check the memory was allocated
     if(result == NULL){
-        fprintf(stderr, "Couldn't allocate memory for target variable ! Need to exit now.");
+        fprintf(stderr, "Couldn't allocate memory for target variable ! Need to exit now.\n");
         exit(EXIT_FAILURE);
     }
 
@@ -33,7 +33,7 @@ char* get_file_contents(const char *filename, int limit){
 
     //Check for errors
     if(file == -1){
-        fprintf(stderr, "Couldn't open file: %s!", filename);
+        fprintf(stderr, "Couldn't open file: %s!\n", filename);
         exit(EXIT_FAILURE);
     }
 
