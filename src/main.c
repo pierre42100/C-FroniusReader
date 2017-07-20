@@ -6,7 +6,6 @@
  *
  * @author Pierre HUBERT
  */
-#include <SDL2/SDL.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,11 +14,12 @@
 #include "utils.h"
 #include "web.h"
 #include "fronius.h"
+#include "window.h"
 
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
+#define WINDOW_WIDTH 160
+#define WINDOW_HEIGHT 50
 
-#define PAUSE_DURATION 2
+#define PAUSE_DURATION 1
 
 int main(int argc, char *argv[])
 {
@@ -62,17 +62,27 @@ int main(int argc, char *argv[])
     //Extract informations from the URL
     extract_url_informations(webAddress, hostname, address);
 
+    //Initializate UI
+    initilizate_ui(WINDOW_WIDTH, WINDOW_HEIGHT);
+
+    //Load graphical numbers
+    load_graphical_numbers("Numbers.png");
+
     //Infinite loop
     while(1 == 1){
         //Perform the request on the server
-        char *response = web_request(1000, hostname, 80, "GET", address, "");
+        //char *response = web_request(1000, hostname, 80, "GET", address, "");
 
         //Determine the produced amount of energy
-        produced_energy = determine_inverter_produced_value(response);
+        //produced_energy = determine_inverter_produced_value(response);
+        produced_energy = alea(5000, 200);
         fprintf(stdout, "Currently, %d W are produced by the inverter.\n", produced_energy);
 
         //Free memory
-        free(response);
+        //free(response);
+
+        //Update screen
+        update_screen(produced_energy);
 
         //Make a pause
         usleep(PAUSE_DURATION*1000000);

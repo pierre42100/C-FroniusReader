@@ -16,4 +16,21 @@
  */
 char* get_file_contents(const char *filename, int limit);
 
+/**
+ * Generates a random number in a specified interval
+ *
+ * @param int min The minimum number
+ * @param int max The maximum number
+ * @return int The result number
+ */
+int alea(int max, int min);
+
+/**
+ * Generate & display a fatal error
+ *
+ * @param const char *error_msg The error message
+ * @return void (The function quit the programm)
+ */
+void fatal_error(const char *error_msg);
+
 #endif // UTILS_H_INCLUDED

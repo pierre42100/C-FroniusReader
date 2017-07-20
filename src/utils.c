@@ -4,10 +4,12 @@
  * @author Pierre HUBERT
  */
 
+#include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <time.h>
 
 /**
  * Read & return the content of a file
@@ -45,4 +47,28 @@ char* get_file_contents(const char *filename, int limit){
 
     //Return result
     return result;
+}
+
+/**
+ * Generates a random number in a specified interval
+ *
+ * @param int min The minimum number
+ * @param int max The maximum number
+ * @return int The result number
+ */
+int alea(int max, int min){
+    srand(time(NULL));
+    return (rand() % (max - min + 1)) + min;
+}
+
+/**
+ * Generate & display a fatal error
+ *
+ * @param const char *error_msg The error message
+ * @return void (The function quit the programm)
+ */
+void fatal_error(const char *error_msg){
+    fprintf(stderr, "A fatal error occured: %s\n", error_msg);
+    fprintf(stderr, "SDL2.0_Error: %s\n", SDL_GetError());
+    exit(EXIT_FAILURE);
 }
